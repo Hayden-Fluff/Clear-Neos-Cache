@@ -15,7 +15,7 @@ If no directory is given, then it will default to `%temp%\Solarix\NeosVR\Cache`
 
 This program **will** permanently remove files in the given directory with the only confirmation being running the program, use outside of an automated schedule is not advised.
 
-The program will only run in Windows NT systems, as it uses methods that only work on Windows NT platforms
+The program will only run on Windows NT systems, as it uses methods that only work on Windows NT platforms.
 Launching the executable on another OS will throw an exception.
 
 ## How to use
