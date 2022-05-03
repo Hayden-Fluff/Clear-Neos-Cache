@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using CommandLine;
 
 
@@ -55,6 +56,11 @@ namespace ClearNeosCache
                 }
             }
 
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                RunClear.HandleException("unsupportedOS");
+            }
+
             if (exceptionThrown == false)
             {
             //  Console.WriteLine(opts.FileAge + "\n");
@@ -91,6 +97,11 @@ namespace ClearNeosCache
             else if (exceptionName == "invalidDirectory")
             {
                 Console.WriteLine("Error: {0}{1}{0} is not a valid folder path.\n", @"'", runningDirectory);
+            }
+
+            else if (exceptionName == "unsupportedOS")
+            {
+                Console.WriteLine("Error: The current OS is unsupported, must be using a Windows opperating system.");
             }
 
             else if (exceptionName.Contains("fileAccessException"))
@@ -171,7 +182,6 @@ namespace ClearNeosCache
                         {
                             HandleException("fileAccessException: " + ex);
                         }
-
                     }
                 }
             }

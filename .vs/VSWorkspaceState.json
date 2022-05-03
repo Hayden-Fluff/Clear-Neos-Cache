@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Proj",
+    "\\Proj\\ClearNeosCache",
+    "\\Proj\\ClearNeosCache\\bin",
+    "\\Proj\\packages"
   ],
-  "SelectedNode": "\\D:\\Repositories\\ClearNeosCache\\Clear-Neos-Cache",
+  "SelectedNode": "\\Proj\\ClearNeosCache\\RunClear.cs",
   "PreviewInSolutionExplorer": false
 }
