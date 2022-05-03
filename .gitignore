@@ -1,0 +1,4 @@
+*.suo
+*.sqlite
+Proj/ClearNeosCache/obj
+Proj/ClearNeosCache/bin
