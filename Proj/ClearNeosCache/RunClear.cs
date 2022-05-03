@@ -189,9 +189,22 @@ namespace ClearNeosCache
             DateTime endTime = DateTime.Now;
             TimeSpan totalTime = endTime - startTime;
 
-            Console.WriteLine("\nOpperation completed in {0} hours, {1:mm} minutes, {1:ss} seconds\nprocessed {3} files\nRemoved {2} bytes of data in {4} files", Math.Floor(totalTime.TotalHours), totalTime, totalFileSize, totalNumberOfFiles, deletedFiles);
+            Console.WriteLine("\nOpperation completed in {0} hours, {1:mm} minutes, {1:ss} seconds\nprocessed {3} files\nRemoved {2} bytes of data in {4} files", Math.Floor(totalTime.TotalHours), totalTime, BytesToString(totalFileSize), totalNumberOfFiles, deletedFiles);
          //   Console.WriteLine("\n{0}\n\n{1}\n{2}\n", runningDirectory, fileAge, TimeDelta(fileAge));
             return 1;
+
+            }
+         // https://stackoverflow.com/questions/281640/how-do-i-get-a-human-readable-file-size-in-bytes-abbreviation-using-net
+            public static string BytesToString(long byteCount)
+            {
+                //Longs run out around EB
+                string[] suf = { "B", "KB", "MB", "GB", "TB", "PB", "EB" }; 
+                if (byteCount == 0)
+                    return "0" + suf[0];
+                long bytes = Math.Abs(byteCount);
+                int place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1024)));
+                double num = Math.Round(bytes / Math.Pow(1024, place), 1);
+                return (Math.Sign(byteCount) * num).ToString() + suf[place];
         }
     }
 }
